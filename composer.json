@@ -11,5 +11,7 @@
             "email": "catherine.tranchand@laplateforme.io"
         }
     ],
-    "require": {}
+    "require": {
+        "altorouter/altorouter": "2.0.2"
+    }
 }
