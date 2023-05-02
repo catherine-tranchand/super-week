@@ -1,0 +1,15 @@
+{
+    "name": "catherine-tranchand/super-week",
+    "autoload": {
+        "psr-4": {
+            "CatherineTranchand\\SuperWeek\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "catherine-tranchand",
+            "email": "catherine.tranchand@laplateforme.io"
+        }
+    ],
+    "require": {}
+}
