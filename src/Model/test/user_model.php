@@ -40,7 +40,7 @@ for ($i=1; $i < $numberOfUsers; $i++) {
     hashPassword: %s
     ", $firstName, $lastName, $email, $password, $hashPassword);
 
-    $userModel->create($email,$firstName,$lastName, $hashPassword);
+   // $userModel->create($email,$firstName,$lastName, $hashPassword);
 
 }
 

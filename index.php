@@ -1,6 +1,6 @@
 <?php
 
-//require the autolaoder //
+//require the autoloader //
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -21,11 +21,11 @@ $router->setBasePath('/super-week');
 
 $router->map('GET', '/', function(){
 
-    $welcomeMessage = 'Bienvenue sur la page d accuille!';
+    $welcomeMessage = 'Bienvenue sur la page d accueille!';
 
     require __DIR__ . '/src/View/home.php';
 
-    //echo phpinfo();
+    echo "<h1> $welcomeMessage </h1>";
     
 
  }, 'home');
@@ -34,7 +34,11 @@ $router->map('GET', '/', function(){
 
 $router->map('GET', '/users', function(){
 
+   $welcomeMessage = 'Bienvenue sur la liste des utilisateurs!';
+
    require __DIR__ . '/src/View/users.php';
+
+echo "<h1> $welcomeMessage </h1>";
 
 });
 
