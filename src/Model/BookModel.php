@@ -1,10 +1,10 @@
 <?php
 
 
-// declare a namespace for this `BookModel` class
-namespace App\Model;
+ //declare a namespace for this `BookModel` class
+namespace App\Model\Helper;
 
-
+use App\Model\Helper\Database;
 
 
 

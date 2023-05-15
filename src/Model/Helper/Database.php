@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\Helper;
 
 use PDO;
 use PDOException;
@@ -11,7 +11,7 @@ class Database {
     private string $db_username = "root";
     private string $db_password = "root";
     private int $port = 8889;
-    private string $db_name = "super-week";
+    private string $db_name = "super_week";
 
     public ?object $pdo = null;
     public ?object $db = null;

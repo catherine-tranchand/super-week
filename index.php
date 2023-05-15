@@ -13,6 +13,7 @@ $router->setBasePath('/super-week');
 
 
 
+use App\Controller\UserController;
 
 
 
@@ -34,11 +35,13 @@ $router->map('GET', '/', function(){
 
 $router->map('GET', '/users', function(){
 
-   $welcomeMessage = 'Bienvenue sur la liste des utilisateurs!';
+   $userController = new UserController();
+   $userController->list();
+   
+   // $welcomeMessage = 'Bienvenue sur la liste des utilisateurs!';
 
-   require __DIR__ . '/src/View/users.php';
+   // require __DIR__ . '/src/View/users.php';
 
-echo "<h1> $welcomeMessage </h1>";
 
 });
 
@@ -54,13 +57,15 @@ $router->map('GET', '/users/[i:user_id]', function($user_id){
 
 
 
+
+
  $match = $router->match();
 
 
 // call closure or throw 404 status
-if( is_array($match) && is_callable( $match['target'] ) ) {
+if(is_array($match) && is_callable( $match['target'] ) ) {
 	call_user_func_array( $match['target'], $match['params'] ); 
 } else {
 	// no route was matched
-	//header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
+	header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
 }

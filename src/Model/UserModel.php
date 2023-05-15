@@ -3,6 +3,8 @@
 // declare a namespace for this `UserModel` class
 namespace App\Model;
 
+use App\Model\Helper\Database;
+
 use PDO;
 
 
@@ -29,6 +31,16 @@ class UserModel extends Database {
       $sql_exe->execute([]);
       $result = $sql_exe->fetchAll(PDO::FETCH_ASSOC);
 
+      return $result;
+
+    }
+
+    public function userById($id){
+      $sql ="SELECT * FROM user WHERE id = $id";
+      $sql_exe=$this->db->prepare($id);
+      $sql_exe->execute([]);
+      $result = $sql_exe->fetchAll(PDO::FETCH_ASSOC);
+      return $result;
     }
 
    }
