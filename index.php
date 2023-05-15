@@ -36,11 +36,12 @@ $router->map('GET', '/', function(){
 $router->map('GET', '/users', function(){
 
    $userController = new UserController();
+   $welcomeMessage = 'Bienvenue sur la liste des utilisateurs!';
+
+   require __DIR__ . '/src/View/users.php';
+   
    $userController->list();
    
-   // $welcomeMessage = 'Bienvenue sur la liste des utilisateurs!';
-
-   // require __DIR__ . '/src/View/users.php';
 
 
 });

@@ -9,6 +9,7 @@
 <body>
 
 <h1>List of Users</h1>
+<h1><?= $welcomeMessage ?></h1>
     
 </body>
 </html>
