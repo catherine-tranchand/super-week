@@ -2,7 +2,12 @@
     "name": "catherine-tranchand/super-week",
     "autoload": {
         "psr-4": {
-            "CatherineTranchand\\SuperWeek\\": "src/"
+            "App\\": "src/",
+            "App\\Model\\": "src/Model/",
+            "App\\Model\\Helper\\": "src/Model/Helper/",
+
+            "App\\Controller\\": "src/Controller/",
+            "App\\View\\": "src/View/"
         }
     },
     "authors": [
@@ -12,6 +17,10 @@
         }
     ],
     "require": {
-        "altorouter/altorouter": "2.0.2"
+        "altorouter/altorouter": "2.0.2",
+        "fakerphp/faker": "^1.21"
+        
     }
+
+   
 }
