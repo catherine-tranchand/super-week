@@ -76,6 +76,20 @@ $router->map('POST', '/register', function(){
  
 });
 
+$router->map('GET', '/login', function(){
+   require __DIR__ . '/src/View/login.php';
+});
+
+
+
+$router->map('POST', '/login', function(){
+
+   $authController = new AuthController();
+   $authController->login();
+ 
+});
+
+
 
 
 

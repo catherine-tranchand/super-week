@@ -19,6 +19,15 @@ class AuthController{
         
         echo json_encode($this->userModel->insertUser($email, $firstname, $lastname, $password));
     }
+
+    public function login(){
+        $email = $_POST['email']; 
+        $password = $_POST['password'];
+
+        $success = $this->userModel->connection($email, $password);
+
+        echo json_encode(["success" => $success]);
+    }
    
     
 }
