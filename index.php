@@ -14,6 +14,8 @@ $router->setBasePath('/super-week');
 
 
 use App\Controller\UserController;
+use App\Controller\AuthController;
+
 
 
 
@@ -56,6 +58,23 @@ $router->map('GET', '/users/[i:user_id]', function($user_id){
 
 // $userController = new $userController();
 
+
+$router->map('GET', '/register', function(){
+
+   $userController = new UserController();
+
+   require __DIR__ . '/src/View/register.php';
+
+});
+
+
+
+$router->map('POST', '/register', function(){
+
+   $authController = new AuthController();
+   $authController->register();
+ 
+});
 
 
 

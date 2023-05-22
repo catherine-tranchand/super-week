@@ -43,6 +43,38 @@ class UserModel extends Database {
       return $result;
     }
 
+    public function verifUser($email){
+      $sql="SELECT * FROM users WHERE email = :email";
+      $sql_exe = $this->db->prepare($sql);
+      $sql_exe->execute(['email' => $email]);
+      $result = $sql_exe->fetch(PDO::FETCH_ASSOC);
+      if($result){
+        return true;
+      } else{
+        return false;
+      }
+    }
+
+    public function insertUser($email, $firstname, $lastname, $password){
+      if (!$this->verifUser($email)){
+        $sql= "INSERT INTO users ( email, first_name, last_name, password) VALUES (:email, :first_name, :last_name, :password)";
+        $sql_exe = $this->db->prepare($sql);
+        $sql_exe->execute([
+          'email' => htmlspecialchars($email),
+          'first_name' => htmlspecialchars($firstname),
+          'last_name' => htmlspecialchars($lastname),
+          'password' => htmlspecialchars(password_hash($password, PASSWORD_DEFAULT))
+        ]);
+
+        if($sql_exe){
+          return true;
+        }else{
+          return false;
+        }
+
+      }
+    }
+
    }
   
 
