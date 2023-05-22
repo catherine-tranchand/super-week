@@ -19,5 +19,7 @@ class UserController {
         echo json_encode($this->userModel->userById($id));
     }
 
+
+
 }
 
