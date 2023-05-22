@@ -75,18 +75,27 @@ class UserModel extends Database {
       }
     }
 
+    public function connection($email, $password){
+      $sql = 'SELECT * FROM users WHERE email = :email';
+      $sql_exe = $this->db->prepare($sql);
+      $sql_exe->execute(['email' => $email]);
+      $result = $sql_exe->fetch(PDO::FETCH_ASSOC);
+      if($result){
+        $hashed_password = $result['password'];
+        if(password_verify($password, $hashed_password)){
+          $userId = $result['id'];
+          $_SESSION['id'] = $userId;
+          return true;
+        }else{
+          return false;
+        } 
+
+      }
+    }
+
+    public function logout(){
+      session_destroy();
+    }
+
    }
   
-
-
-
-
-  
-  
-
-
-
-
-
-
-

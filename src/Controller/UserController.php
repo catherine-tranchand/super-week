@@ -19,7 +19,9 @@ class UserController {
         echo json_encode($this->userModel->userById($id));
     }
 
-
+   public function connectionUser($email, $password){
+    //$success=$this->userModel->
+   }
 
 }
 
