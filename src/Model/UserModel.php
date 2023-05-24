@@ -94,7 +94,7 @@ class UserModel extends Database {
     }
 
     public function logout(){
-      session_destroy();
+     return session_destroy();
     }
 
    }

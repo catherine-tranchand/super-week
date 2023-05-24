@@ -20,7 +20,7 @@ class BookModel extends Database {
    }
 
    public function addBook($title, $content, $id_user){
-    $sql = 'INSERT INTO books (title, content, id_user) VALUES (:title, :content, :id_user)';
+    $sql = "INSERT INTO books (title, content, id_user) VALUES (:title, :content, :id_user)";
     $sql_exe = $this->db->prepare($sql);
     $sql_exe->execute([
       'title' => $title,
@@ -37,15 +37,16 @@ class BookModel extends Database {
    }
 
    public function displayBooks(){
-    $sql = 'SELECT * FROM book';
+    $sql = "SELECT * FROM books";
     $sql_exe =$this->db->prepare($sql);
+    $sql_exe->execute([]);
     $result = $sql_exe->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 
    }
 
    public function displayBookId($id){
-    $sql = 'SELECT * FROM book WHERE id = $id';
+    $sql = "SELECT * FROM books WHERE id = $id";
     $sql_exe = $this->db->prepare($sql);
     $sql_exe->execute([]);
     $result = $sql_exe->fetch(PDO::FETCH_ASSOC);
