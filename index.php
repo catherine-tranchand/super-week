@@ -102,12 +102,27 @@ $router->map('POST', '/books/write', function(){
 
 $router->map('GET', '/books', function(){
    require __DIR__ . '/src/View/display_book.php';
-});
 
-$router->map('POST', '/books', function(){
    $bookController = new BookController;
    $bookController->getBooks();
 });
+
+$router->map('GET', '/books/[i:id]', function($id){
+   require __DIR__ . '/src/View/display_book.php';
+
+   $bookController = new BookController;
+   $bookController->getBookById($id);
+});
+
+
+$router->map('GET', '/logout', function(){
+   require __DIR__ . '/src/View/logout.php';
+
+   $authController = new AuthController;
+   $authController->logout();
+});
+
+
 
 
 

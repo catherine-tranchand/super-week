@@ -28,6 +28,11 @@ class AuthController{
 
         echo json_encode(["success" => $success]);
     }
+
+    public function logout(){
+        $success = $this->userModel->logout();
+        echo json_encode(["success" => $success]);
+    }
    
     
 }
