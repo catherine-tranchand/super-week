@@ -12,7 +12,7 @@ async function handleFormSubmit(event){
     if (responseData.success) {
         let errorDiv = document.querySelector('.error');
         errorDiv.innerHTML = "Connection is successful"
-       // window.location.replace('');
+        window.location.replace('books/write');
     }else{
         let errorDiv = document.querySelector('.error');
         errorDiv.innerHTML = "Connection is failed";

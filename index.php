@@ -1,5 +1,7 @@
 <?php
+use App\Controller\BookController;
 
+session_start();
 //require the autoloader //
 
 error_reporting(E_ALL);
@@ -87,6 +89,24 @@ $router->map('POST', '/login', function(){
    $authController = new AuthController();
    $authController->login();
  
+});
+
+$router->map('GET', '/books/write', function(){
+   require __DIR__ . '/src/View/add_book.php';
+});
+
+$router->map('POST', '/books/write', function(){
+   $bookController = new BookController;
+   $bookController->insertBook();
+});
+
+$router->map('GET', '/books', function(){
+   require __DIR__ . '/src/View/display_book.php';
+});
+
+$router->map('POST', '/books', function(){
+   $bookController = new BookController;
+   $bookController->getBooks();
 });
 
 
