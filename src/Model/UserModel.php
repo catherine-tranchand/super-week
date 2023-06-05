@@ -35,9 +35,9 @@ class UserModel extends Database {
 
     }
 
-    public function userById($id){
-      $sql ="SELECT * FROM user WHERE id = $id";
-      $sql_exe=$this->db->prepare($id);
+    public function userById(int $id): array {
+      $sql = "SELECT * FROM users WHERE id = $id";
+      $sql_exe = $this->db->prepare($sql);
       $sql_exe->execute([]);
       $result = $sql_exe->fetchAll(PDO::FETCH_ASSOC);
       return $result;

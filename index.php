@@ -26,11 +26,11 @@ use App\Controller\AuthController;
 
 $router->map('GET', '/', function(){
 
-    $welcomeMessage = 'Bienvenue sur la page d accueille!';
+ //   $welcomeMessage = 'Bienvenue sur la page d accueille!';
 
     require __DIR__ . '/src/View/home.php';
 
-    echo "<h1> $welcomeMessage </h1>";
+   // echo "<h1> $welcomeMessage </h1>";
     
 
  }, 'home');
@@ -40,9 +40,9 @@ $router->map('GET', '/', function(){
 $router->map('GET', '/users', function(){
 
    $userController = new UserController();
-   $welcomeMessage = 'Bienvenue sur la liste des utilisateurs!';
+  // $welcomeMessage = 'Bienvenue sur la liste des utilisateurs!';
 
-   require __DIR__ . '/src/View/users.php';
+   //require __DIR__ . '/src/View/users.php';
    
    $userController->list();
    
@@ -53,9 +53,11 @@ $router->map('GET', '/users', function(){
 
 
 $router->map('GET', '/users/[i:user_id]', function($user_id){
- $welcomeMessage = "Hello user" . $user_id;
+ // $welcomeMessage = "Hello user" . $user_id;
 
- echo "<h1>$welcomeMessage</h1>";
+ // echo "<h1>$welcomeMessage</h1>";
+ $userController = new UserController();
+ $userController->getUserById($user_id);
  });
 
 // $userController = new $userController();
@@ -101,14 +103,14 @@ $router->map('POST', '/books/write', function(){
 });
 
 $router->map('GET', '/books', function(){
-   require __DIR__ . '/src/View/display_book.php';
+  // require __DIR__ . '/src/View/display_book.php';
 
    $bookController = new BookController;
    $bookController->getBooks();
 });
 
 $router->map('GET', '/books/[i:id]', function($id){
-   require __DIR__ . '/src/View/display_book.php';
+   //require __DIR__ . '/src/View/display_book.php';
 
    $bookController = new BookController;
    $bookController->getBookById($id);
@@ -122,13 +124,15 @@ $router->map('GET', '/logout', function(){
    $authController->logout();
 });
 
+$router->map('GET', '/user/[i:id]', function($id){
+   $userController = new UserController;
+   $userController->getUserById($id);
+});
 
 
 
 
-
-
- $match = $router->match();
+$match = $router->match();
 
 
 // call closure or throw 404 status
